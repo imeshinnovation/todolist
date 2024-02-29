@@ -13,8 +13,20 @@ Routes.get("/all", async (req, res) => {
     res.json(await c_todo.all())
 })
 
+Routes.get("/one/:id?", async (req, res) => {
+    res.json(await c_todo.one(req.params))
+})
+
 Routes.post("/add", async (req, res) => {
     res.json(await c_todo.add(req.body))
+})
+
+Routes.delete("/del", async (req, res) => {
+    res.json(await c_todo.del(req.body))
+})
+
+Routes.put("/upd", async (req, res) => {
+    res.json(await c_todo.upd(req.body))
 })
 
 module.exports = Routes
